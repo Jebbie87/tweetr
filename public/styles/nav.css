@@ -20,10 +20,20 @@
   line-height: 2;
 }
 
-main {
+/*main {
   position: relative;
   width: 450px;
   top: 140px;
   margin: auto;
   background-color: white;
 }
+*/
+/*section {
+  box-sizing:
+  border: 1px solid black;
+  margin-top: 80px;
+}
+section .older-tweets {
+  background-color: yellow;
+}*/
+

@@ -1,20 +1,20 @@
 const newTweet = function() {
   const tweetText = $(".new-tweet form textarea");
+  const currentCharLength = $(".new-tweet form .counter")
 
   tweetText.on('keyup', function(event){
     let charLength = $(this).val().length;
-    $(".new-tweet form .counter")[0].innerHTML = 140 - charLength;
-
-    if ($(".new-tweet form .counter")[0].innerHTML < 0){
-      $(".new-tweet form .counter").css( { 'color': 'red'} )
+    currentCharLength.html(140 - charLength);
+    if (currentCharLength.html() < 0){
+      currentCharLength.css( { 'color': 'red'} )
     };
   });
 
   tweetText.on('keydown', function(event) {
-    if ($(".new-tweet form .counter")[0].innerHTML >= 0){
-      $(".new-tweet form .counter").css( { 'color': 'black'} )
+    if (currentCharLength.html() >= 0){
+      currentCharLength.css( { 'color': 'black'} )
     } else if ((event.key === "Backspace")) {
-      $(".new-tweet form .counter")[0].innerHTML++;
+      currentCharLength.html()++;
     };
   });
 };
