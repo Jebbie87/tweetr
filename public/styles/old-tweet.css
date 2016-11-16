@@ -15,7 +15,7 @@
   visibility: visible;
 }*/
 
-#old-tweets:hover .icons {
+#old-tweets article:hover .icons {
   visibility: visible;
 }
 
