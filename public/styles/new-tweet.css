@@ -6,6 +6,7 @@
 
 .counter {
     float: right;
+    color: black;
 }
 
 .container .new-tweet {
