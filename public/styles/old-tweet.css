@@ -1,4 +1,4 @@
-.old-tweet-box {
+#old-tweets article {
   box-sizing: border-box;
   background-color: #ffffff;
   margin-top: 20px;
@@ -7,21 +7,25 @@
   border: 1px solid #b5b5b5
 }
 
-.old-tweet-box:hover {
+#old-tweets article:hover {
   border: 1px solid;
 }
-.old-tweet-box:hover, .old-tweet-box:hover .icons {
+/*
+#old-tweets article:hover, #old-tweets:hover .icons {
+  visibility: visible;
+}*/
+
+#old-tweets:hover .icons {
   visibility: visible;
 }
 
-.old-tweets {
+#old-tweets {
   border-radius: 5px;
-  height: 200px;
 }
 
-.old-header {
+#old-tweets header {
   box-sizing: border-box;
-  height: 60px;
+  height: 55px;
   border-bottom: 1px solid;
   background-color: #d2d2d2;
   border-radius: 5px 5px 0px 0px
@@ -49,14 +53,14 @@
 
 }
 
-footer {
+#old-tweets footer {
   font-size: x-small;
   padding-left: 10px;
   padding-top: 13px;
   border-top: 1px solid;
 }
 
-article > p {
+#old-tweets article > p {
   height: 75px;
   text-align: center;
   padding-left: 1em;

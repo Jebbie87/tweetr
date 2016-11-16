@@ -17,6 +17,7 @@ const newTweet = function() {
       currentCharLength.html()++;
     };
   });
+
 };
 
 $(newTweet);
