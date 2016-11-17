@@ -17,10 +17,12 @@
 .container .new-tweet {
     border-radius: 5px;
     border: 1px solid;
-    background-color: #d4d1d1;
-    height: 200px;
+    background-color: #ededed;
+    height: 150px;
     padding-left: 2em;
     padding-right: 2em;
+    position: relative;
+    bottom: 30px;
 }
 
 .new-tweet > h2 {
@@ -31,10 +33,18 @@ textarea {
   width: 100%;
   box-sizing: border-box;
   padding-left: 10px;
-  height: 70px;
+  height: 50px;
   margin-top: 5px;
 }
 
 form input {
-  border: 1px solid;
+  border: 1px solid #bdbdbd;
+}
+
+form input:hover {
+  border: 1px solid black;
+}
+
+input {
+  background-color: #eeedf0
 }

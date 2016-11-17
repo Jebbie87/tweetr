@@ -10,7 +10,7 @@ function renderTweets(tweets) {
   // })
   tweets.reverse();
   tweets.forEach( (tweet) => {
-    $('#old-tweets').append(createTweetElement(tweet))
+    $('#old-tweets').append(createTweetElement(tweet));
   })
 }
 
@@ -25,7 +25,7 @@ function createTweetElement(tweet) {
   const userName = tweet.user.name;
   const userHandle = tweet.user.handle;
   const oldTweet = tweet.content.text;
-  const datePosted = tweet.created_at;
+  const datePosted = new Date(tweet.created_at).toDateString();
 
   let html =
   `<article>
@@ -62,12 +62,16 @@ $(document).ready(function() {
   $('form').on('submit', function(event){
     event.preventDefault();
     var tweet = $(this).serialize();
-    var actualText = $('textarea').val()
+    var actualText = $('textarea').val();
 
     if (tweet.slice(5) === '') {
-      alert('Please enter a message in the tweet box!');
+      $('<h4>', {
+        class: "no-message",
+        text: "hello"
+      }).appendTo(".new-tweet")
+      // alert('Please enter a message in the tweet box!');
     } else if (actualText.length >= 141) {
-      alert('Your tweet is too long! The max character length is 140. Please remove some characters!');
+      // alert('Your tweet is too long! The max character length is 140. Please remove some characters!');
     } else {
       $.ajax("/tweets", {
         method: "POST",
@@ -75,13 +79,13 @@ $(document).ready(function() {
       }).done(function(res){
         loadTweets();
         $("textarea").val("");
-        $(".new-tweet form .counter").html("140")
-    //      $('.new-tweet').slideUp('slow', function() {
-    // //Animation complete
-  // });
+        $(".new-tweet form .counter").html("140");
       })
     }
   });
-
+  $('button').on('click', function(event){
+    $(".new-tweet").slideToggle();
+    $("textarea").focus();
+  });
 
 });
