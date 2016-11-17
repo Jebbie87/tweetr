@@ -1,7 +1,14 @@
 var data = [];
 
 function renderTweets(tweets) {
-  const tweetAppender = [];
+  tweets.sort(function(a,b){
+    if (a['created_at'] < b['created_at']){
+      return 1
+    } else {
+      return -1
+    }
+  })
+
   tweets.forEach( (tweet) => {
     $('#old-tweets').append(createTweetElement(tweet))
   })
@@ -44,6 +51,16 @@ function createTweetElement(tweet) {
 $(document).ready(function() {
   renderTweets(data);
 
+  const loadTweets = function (){
+    $.ajax('http://localhost:8080/tweets', {
+      method: "GET"
+    }).done(function(res){
+      $("#old-tweets").empty();
+      renderTweets(res);
+    });
+  }
+  loadTweets();
+
   $('form').on('submit', function(event){
     event.preventDefault();
     var tweet = $(this).serialize();
@@ -55,17 +72,11 @@ $(document).ready(function() {
       $.ajax("/tweets", {
         method: "POST",
         data: tweet
+      }).done(function(res){
+        loadTweets();
+        $("textarea").val("");
+        $(".new-tweet form .counter").html("140")
       })
     }
   });
-
-const loadTweets = function (){
-  $.ajax('http://localhost:8080/tweets', {
-    method: "GET"
-  }).done(function(res){
-    renderTweets(res);
-  });
-}
-loadTweets();
-
 });
