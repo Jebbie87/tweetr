@@ -28,10 +28,12 @@ MongoClient.connect(MONGODB_URI, (err, db) => {
     };
 
     console.log("Logging each tweet:");
-    for (let tweet of tweets) {
+    // for (let tweet of tweets) {
+    //   console.log(tweet);
+    // };
+    tweets.forEach( (tweet) => {
       console.log(tweet);
-    };
-
+    })
   db.close();
   });
 
