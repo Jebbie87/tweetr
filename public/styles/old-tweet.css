@@ -9,10 +9,6 @@
 #old-tweets article:hover {
   border: 1px solid;
 }
-/*
-#old-tweets article:hover, #old-tweets:hover .icons {
-  visibility: visible;
-}*/
 
 #old-tweets article:hover .icons {
   visibility: visible;
@@ -91,4 +87,3 @@
   float: right;
   opacity: 0.5;
 }
-

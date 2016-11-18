@@ -1,17 +1,18 @@
-const newTweet = function() {
-  const tweetText = $(".new-tweet form textarea");
-  const currentCharLength = $(".new-tweet form .counter")
+$(document).ready( () => {
 
-  tweetText.on('keyup', function(event){
-    let charLength = $(this).val().length;
-    currentCharLength.html(140 - charLength);
+const newTweet = () => {
+  const tweetText = $('.new-tweet form textarea');
+  const currentCharLength = $('.new-tweet form .counter')
 
-    if (currentCharLength.html() < 0){
-      currentCharLength.css( { 'color': 'red'} )
-    } else {
-      currentCharLength.css( { 'color': 'black'} )
-    }
-  });
+    tweetText.on('keyup', (event) => {
+      let charLength = $(this).val().length;
+      currentCharLength.html(140 - charLength);
+
+      if (currentCharLength.html() < 0){
+        currentCharLength.css( { 'color': 'red'} )
+      } else {
+        currentCharLength.css( { 'color': 'black'} )
+      };
+    });
+  };
 };
-
-$(newTweet);
