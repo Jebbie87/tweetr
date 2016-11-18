@@ -49,3 +49,7 @@ form input:hover {
 input {
   background-color: #eeedf0
 }
+
+.error-message {
+  padding-left: 25px;
+}
