@@ -1,18 +1,19 @@
-$(document).ready( () => {
+$(document).ready(function() {
 
-const newTweet = () => {
+const newTweet = function() {
   const tweetText = $('.new-tweet form textarea');
-  const currentCharLength = $('.new-tweet form .counter')
+  const currentCharLength = $('.new-tweet form .counter');
 
-    tweetText.on('keyup', (event) => {
-      let charLength = $(this).val().length;
+    tweetText.on('keyup', function(event) {
+      const charLength = $(this).val().length;
       currentCharLength.html(140 - charLength);
 
       if (currentCharLength.html() < 0){
-        currentCharLength.css( { 'color': 'red'} )
+        currentCharLength.css( { 'color': 'red'} );
       } else {
-        currentCharLength.css( { 'color': 'black'} )
+        currentCharLength.css( { 'color': 'black'} );
       };
+
     });
   };
 };

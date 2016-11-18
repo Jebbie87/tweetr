@@ -1,27 +1,25 @@
-function renderTweets(tweets) {
-  //
-  // Left this in here
-  //
-  // tweets.sort(function(a,b){
-  //   if (a.created_at] < b.created_at]){
-  //     return 1
-  //   } else {
-  //     return -1
-  //   }
-  // })
-  tweets.reverse();
-  tweets.forEach( (tweet) => {
-    $('#old-tweets').append(createTweetElement(tweet));
-  })
-}
+const renderTweets = function(tweets) {
 
-const escape = (str) => {
+  tweets.sort(function(a,b){
+    if (a.created_at < b.created_at) {
+      return 1;
+    } else {
+      return -1;
+    };
+  });
+
+  tweets.forEach(function(tweet) {
+    $('#old-tweets').append(createTweetElement(tweet));
+  });
+};
+
+const escape = function(str) {
   var div = document.createElement('div');
   div.appendChild(document.createTextNode(str));
   return div.innerHTML;
 }
 
-const createTweetElement = (tweet) => {
+const createTweetElement = function(tweet) {
   const userAvatar = tweet.user.avatars.small;
   const userName = tweet.user.name;
   const userHandle = tweet.user.handle;
@@ -44,23 +42,23 @@ const createTweetElement = (tweet) => {
         <i class="fa fa-flag fa-lg"></i>
       <div>
     </footer>
-  </article>`
+  </article>`;
 
   return html;
 };
 
-$(document).ready( () => {
+$(document).ready(function() {
 
-const loadTweets = () => {
+const loadTweets = function() {
   $.ajax('http://localhost:8080/tweets', {
-    method: 'GET'
+    method: 'GET',
   }).done( (res) => {
     $('#old-tweets').empty();
     renderTweets(res);
   });
-}
+};
 
-const createTweet = (tweet) => {
+const createTweet = function(tweet) {
   $.ajax('/tweets', {
     method: 'POST',
     data: tweet,
@@ -68,12 +66,12 @@ const createTweet = (tweet) => {
     loadTweets();
     $('textarea').val('');
     $('.new-tweet form .counter').html('140');
-  })
-}
+  });
+};
 
 loadTweets();
 
-  $('form').on('submit', (event) => {
+  $('form').on('submit', function(event) {
     event.preventDefault();
     const tweet = $(this).serialize();
     const actualText = $('textarea').val();
@@ -81,14 +79,15 @@ loadTweets();
     if (actualText === '') {
       $('.error-message').html('').append("Please don't be empty");
     } else if (actualText.length >= 141) {
-      $('.error-message').html('').append('This is wayyyyyyyy too long.')
+      $('.error-message').html('').append('This is wayyyyyyyy too long.');
     } else {
-      createTweet(tweet)
-    }
+      createTweet(tweet);
+    };
   });
 
-  $('button').on('click', (event) => {
+  $('button').on('click', function(event) {
     $('.new-tweet').slideToggle();
     $('textarea').focus();
   });
 });
+
