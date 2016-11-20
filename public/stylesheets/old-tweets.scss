@@ -1,0 +1,92 @@
+#old-tweets {
+
+$favcolour: #b5b5b5;
+
+  article {
+    box-sizing: border-box;
+    background-color: #ffffff;
+    height: 200px;
+    border-radius: 5px;
+    border: 1px solid $favcolour;
+    margin-top: 20px;
+  }
+
+  article:hover {
+    border: 1px solid;
+  }
+
+  article:hover .icons {
+    visibility: visible;
+  }
+
+  header {
+    box-sizing: border-box;
+    height: 55px;
+    border-bottom: 1px solid;
+    background-color: #f3f3f3;
+    border-radius: 5px 5px 0px 0px
+  }
+
+  .user-picture {
+    height:40px;
+    width: 40px;
+    float: left;
+    margin: 6px;
+    border-radius: 5px
+  }
+
+  .username {
+    position: relative;
+    top: -15px;
+    float: left;
+  }
+
+  .user-handle {
+    padding-right: 7px;
+    margin-top: 15px;
+    float: right;
+    opacity: 0.5;
+
+  }
+
+  footer {
+    font-size: x-small;
+    padding-left: 10px;
+    padding-top: 13px;
+    border-top: 1px solid;
+  }
+
+  article > p {
+    height: 75px;
+    text-align: center;
+    padding-left: 1em;
+    padding-right: 1em;
+    word-wrap: break-word;
+  }
+
+  .icons {
+    position: relative;
+    bottom: 12px;
+    visibility: hidden;
+  }
+
+  .fa-heart {
+    float: right;
+    padding-right: 7px;
+    display: none;
+    opacity: 0.5;
+  }
+
+  .fa-retweet {
+    float: right;
+    margin-left: 10px;
+    margin-right: 10px;
+    opacity: 0.5;
+  }
+
+  .fa-flag {
+    float: right;
+    opacity: 0.5;
+  }
+
+}

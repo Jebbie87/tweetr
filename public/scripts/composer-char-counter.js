@@ -1,8 +1,7 @@
 $(document).ready(function() {
 
-const newTweet = function() {
-  const tweetText = $('.new-tweet form textarea');
-  const currentCharLength = $('.new-tweet form .counter');
+  const tweetText = $('.new-tweet textarea');
+  const currentCharLength = $('.counter');
 
     tweetText.on('keyup', function(event) {
       const charLength = $(this).val().length;
@@ -15,5 +14,4 @@ const newTweet = function() {
       };
 
     });
-  };
-};
+});

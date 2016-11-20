@@ -4,83 +4,59 @@
   height: 200px;
   border-radius: 5px;
   border: 1px solid #b5b5b5;
-  margin-top: 20px;
-}
-
+  margin-top: 20px; }
 #old-tweets article:hover {
-  border: 1px solid;
-}
-
+  border: 1px solid; }
 #old-tweets article:hover .icons {
-  visibility: visible;
-}
-
+  visibility: visible; }
 #old-tweets header {
   box-sizing: border-box;
   height: 55px;
   border-bottom: 1px solid;
   background-color: #f3f3f3;
-  border-radius: 5px 5px 0px 0px
-}
-
-.user-picture {
-  height:40px;
+  border-radius: 5px 5px 0px 0px; }
+#old-tweets .user-picture {
+  height: 40px;
   width: 40px;
   float: left;
   margin: 6px;
-  border-radius: 5px
-}
-
-.username {
+  border-radius: 5px; }
+#old-tweets .username {
   position: relative;
   top: -15px;
-  float: left;
-}
-
-.user-handle {
+  float: left; }
+#old-tweets .user-handle {
   padding-right: 7px;
   margin-top: 15px;
   float: right;
-  opacity: 0.5;
-
-}
-
+  opacity: 0.5; }
 #old-tweets footer {
   font-size: x-small;
   padding-left: 10px;
   padding-top: 13px;
-  border-top: 1px solid;
-}
-
+  border-top: 1px solid; }
 #old-tweets article > p {
   height: 75px;
   text-align: center;
   padding-left: 1em;
   padding-right: 1em;
-  word-wrap: break-word;
-}
-
-.icons {
+  word-wrap: break-word; }
+#old-tweets .icons {
   position: relative;
   bottom: 12px;
-  visibility: hidden;
-}
-
-.fa-heart {
+  visibility: hidden; }
+#old-tweets .fa-heart {
   float: right;
   padding-right: 7px;
   display: none;
-  opacity: 0.5;
-}
-
-.fa-retweet {
+  opacity: 0.5; }
+#old-tweets .fa-retweet {
   float: right;
   margin-left: 10px;
   margin-right: 10px;
-  opacity: 0.5;
-}
-
-.fa-flag {
+  opacity: 0.5; }
+#old-tweets .fa-flag {
   float: right;
-  opacity: 0.5;
-}
+  opacity: 0.5; }
+
+/*# sourceMappingURL=old-tweets.css.map */

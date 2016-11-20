@@ -36,10 +36,10 @@ const createTweetElement = function(tweet) {
     <p id="tweets-container">${escape(oldTweet)}</p>
     <footer>
       ${datePosted}
-      <div class="icons'>
-        <i class="fa fa-heart fa-lg"></i>
-        <i class="fa fa-retweet fa-lg"></i>
-        <i class="fa fa-flag fa-lg"></i>
+      <div class="icons">
+        <a class="heart-button" href="/like"><i class="fa fa-heart fa-lg"></i></a>
+        <a class="retweet-button" href="/tweets/like"><i class="fa fa-retweet fa-lg"></i></a>
+        <a class="flag-button" href="/tweets/like"><i class="fa fa-flag fa-lg"></i></a>
       <div>
     </footer>
   </article>`;
@@ -50,7 +50,7 @@ const createTweetElement = function(tweet) {
 $(document).ready(function() {
 
 const loadTweets = function() {
-  $.ajax('http://localhost:8080/tweets', {
+  $.ajax('/tweets', {
     method: 'GET',
   }).done( (res) => {
     $('#old-tweets').empty();
@@ -68,6 +68,15 @@ const createTweet = function(tweet) {
     $('.new-tweet form .counter').html('140');
   });
 };
+
+const getLike = function() {
+  $.ajax({
+    url: "/tweets/like",
+    method: "GET",
+  }).done(function(res){
+    let user = r
+  });
+}
 
 loadTweets();
 
@@ -89,5 +98,20 @@ loadTweets();
     $('.new-tweet').slideToggle();
     $('textarea').focus();
   });
-});
 
+  let tweetLike = 0;
+  $('#old-tweets').on('click', ".heart-button", function(event) {
+    event.preventDefault();
+    if ($('.heart-button').hasClass('liked')){
+
+      tweetLike--;
+      $('.heart-button').removeClass('liked');
+      $('.heart-button').css ( {"color": ""} );
+    } else {
+      $('.heart-button').addClass("liked");
+      tweetLike++;
+      $('.heart-button').css ( {"color": "red"} );
+    };
+
+  });
+});
